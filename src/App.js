@@ -60,6 +60,9 @@ function App() {
       .then((data) => {
         setCountry(countryCode)
         setCountryInfo(data) //all the data from the country response
+
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long])
+        setMapZoom(4)
       })
   }
 
