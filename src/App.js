@@ -18,6 +18,7 @@ function App() {
   const [countries, setCountries] = useState([])
   const [country, setCountry] = useState("worldwide")
   const [countryInfo, setCountryInfo] = useState({})
+  const [mapCountries, setMapCountries] = useState([])
   const [tableData, setTableData] = useState([])
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 })
   const [mapZoom, setMapZoom] = useState(3)
@@ -41,6 +42,7 @@ function App() {
           }))
           const sortedData = sortData(data)
           setTableData(sortedData)
+          setMapCountries(data)
           setCountries(countries)
         })
     }
@@ -106,7 +108,7 @@ function App() {
         {/* Table of countries plus cases */}
         {/* Graph */}
 
-        <Map center={mapCenter} zoom={mapZoom} />
+        <Map center={mapCenter} zoom={mapZoom} countries={mapCountries} />
       </div>
       <Card className="app__right">
         <CardContent>
